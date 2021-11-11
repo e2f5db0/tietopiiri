@@ -35,7 +35,7 @@ const Vote = (props) => {
             <div className='Topic-list'>
                 <h3>Aiheet</h3>
                 <div className='Vote-container'>
-                    {topics.length > 0 && topics.map(topic => <div key={topic.name} className={classNames({'Topic-vote': !topic.votes.includes(props.user)}, {'Topic-vote Voted': topic.votes.includes(props.user)})} onClick={() => vote(topic.id)}><span>{topic.name}</span><br/><span>{topic.votes.length}/6</span></div>)}
+                    {topics.length > 0 && topics.map(topic => <div key={topic.name} className={classNames({'Topic-vote': !topic.votes.includes(props.user)}, {'Topic-vote Voted': topic.votes.includes(props.user)})} onClick={() => vote(topic.id)}><span>{topic.name}</span><span>{topic.votes.length}/6</span></div>)}
                 </div>
             </div>
         </div>

@@ -256,10 +256,14 @@ h3 {
 }
 
 .Topic-vote {
-  width: 50%;
-  height: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 4em;
   border-radius: 3em;
-  padding-top: .5em;
+  padding: .6em;
   background-color: #3C415C;
   border: 2px solid #301B3F;
   margin-bottom: .5em;
