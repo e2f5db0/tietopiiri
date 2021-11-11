@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import './App.css'
 import { Switch, Route, useHistory } from 'react-router-dom'
-import Navbar from './components/Navbar'
 import Login from './components/Login'
 import Main from './components/Main'
 import AddTopics from './components/AddTopics'
 import TopicSelection from './components/TopicSelection'
 import Vote from './components/Vote'
+import ReactAudioPlayer from 'react-audio-player'
+import background from './resources/background.mp3'
 
 const App = () => {
 
@@ -18,24 +19,33 @@ const App = () => {
         history.push(`/${view}`)
     }
 
+
+    const [play, setPlay] = useState(false)
+    const [volume, setVolume] = useState(1)
+
+    const pauseBackgroundMusic = (time) => {
+        setVolume(.1)
+        setTimeout(() => {
+            setVolume(1)
+        }, time)
+    }
+
     const views = {}
 
-    views['login'] = <Login setUser={setUser} />
+    views['login'] = <Login setPlay={setPlay} setUser={setUser} />
 
     views['main'] = <Main user={user} setView={setView} />
 
-    views['addTopics'] = <AddTopics user={user} />
+    views['addTopics'] = <AddTopics user={user} setView={setView} />
 
-    views['vote'] = <Vote setView={setView} user={user} />
+    views['vote'] = <Vote user={user} setView={setView} />
 
-    views['topicSelection'] = <TopicSelection />
+    views['topicSelection'] = <TopicSelection user={user} setView={setView} pauseBackgroundMusic={pauseBackgroundMusic} />
 
 
     return (
         <div className="App">
-            {
-                //<Navbar setBody={setView} />
-            }
+            <ReactAudioPlayer src={background} autoPlay={play} loop={true} volume={volume} />
             <Switch>
                 <Route exact path='/'>
                     {user ? views['main'] : views['login']}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import classNames from 'classnames'
+import Navbar from './Navbar'
 
 const querystring = require('querystring')
 
@@ -29,9 +30,10 @@ const Vote = (props) => {
 
     return (
         <div className='Container'>
-            <h1>Äänestä</h1>
+            <Navbar user={props.user} setView={props.setView} />
+            <h2>Äänestä</h2>
             <div className='Topic-list'>
-                <h2>Aiheet</h2>
+                <h3>Aiheet</h3>
                 <div className='Vote-container'>
                     {topics.length > 0 && topics.map(topic => <div key={topic.name} className={classNames({'Topic-vote': !topic.votes.includes(props.user)}, {'Topic-vote Voted': topic.votes.includes(props.user)})} onClick={() => vote(topic.id)}><span>{topic.name}</span><br/><span>{topic.votes.length}/6</span></div>)}
                 </div>

@@ -1,18 +1,19 @@
 import React from 'react'
+import Navbar from './Navbar'
 
 const Main = (props) => {
 
   return (
     <div className='Container'>
-      <h1>Tietopiiri <small>({props.user})</small> </h1>
+      <Navbar user={props.user} setView={props.setView} />
       <div className='Choice-container' onClick={() => props.setView('addTopics')}>
-          <p>Lisää aihe</p>
+        <p>Lisää aihe</p>
       </div>
       <div className='Choice-container' onClick={() => props.setView('vote')}>
-          <p>Äänestä</p>
+        <p>Äänestä</p>
       </div>
       <div className='Choice-container' onClick={() => props.setView('topicSelection')}>
-          <p>Aihevalinta</p>
+        <p>Aihevalinta</p>
       </div>
     </div>
   )

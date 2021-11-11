@@ -8,7 +8,7 @@ const Login = (props) => {
     <div className='Container'>
       <h1>Tietopiiri</h1>
       {members.map(name => 
-        <div key={name} className='Choice-container' onClick={() => props.setUser(name)}>
+        <div key={name} className='Choice-container' onClick={() => {props.setPlay(true); props.setUser(name)}}>
           <p>{name}</p>
         </div>
       )}

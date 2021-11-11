@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import Navbar from './Navbar'
 
 const querystring = require('querystring')
 
@@ -35,11 +36,12 @@ const AddTopics = (props) => {
 
   return (
     <div className='Container'>
-      <h1>Lisää aihe</h1>
+      <Navbar user={props.user} setView={props.setView} />
+      <h3>Lisää aihe</h3>
       <input type='text' className='Input-field' value={topic} onChange={(event) => setTopic(event.target.value)} />
-      <button className='btn' onClick={async () => await addTopic()}>Lisää</button>
+      <button className='btn Add-btn' onClick={async () => await addTopic()}>Lisää</button>
       <div className='Topic-list'>
-        <h2>Aiheet</h2>
+        <h3>Aiheet</h3>
         {topics.length > 0 && topics.map(topic => <p key={topic.name}><span>{topic.name}</span> <span className='Delete-cross' onClick={() => deleteTopic(topic.id)}> X</span></p>)}
       </div>
     </div>
