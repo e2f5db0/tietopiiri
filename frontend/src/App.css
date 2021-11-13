@@ -189,9 +189,23 @@ h3 {
   margin: 0.5rem 0;
 }
 
+.Login-name-container {
+  padding: .5em;
+  margin-bottom: 1em;
+  border-radius: 1em;
+  font-size: 1.4rem;
+  background-color: #3C415C;
+  width: 50%;
+}
+
+.Login-name-container:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
 .Choice-container {
   padding: .5em;
-  margin-bottom: .5em;
+  margin-bottom: 1em;
   border-radius: 1em;
   font-size: 2.5rem;
   background-color: #3C415C;

@@ -2,13 +2,13 @@ import React from 'react'
 
 const Login = (props) => {
 
-  const members = ['Eemeli', 'Oona', 'Sami', 'Sebu', 'Suski',]
+  const members = ['Alisa', 'Eemeli', 'Oona', 'Sami', 'Sebu', 'Suski',]
 
   return (
     <div className='Container'>
       <h1>Tietopiiri</h1>
       {members.map(name => 
-        <div key={name} className='Choice-container' onClick={() => {props.setPlay(true); props.setUser(name)}}>
+        <div key={name} className='Login-name-container' onClick={() => {props.setPlay(true); props.setUser(name)}}>
           <p>{name}</p>
         </div>
       )}
