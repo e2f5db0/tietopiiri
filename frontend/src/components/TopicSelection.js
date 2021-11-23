@@ -53,6 +53,11 @@ const TopicSelection = (props) => {
       <div className='Topic-list'>
         <h3>Menneet aiheet</h3>
         {topics.length > 0 && topics.map(topic => <p key={topic.name}><span>{topic.name}</span></p>)}
+        {!topics.length &&
+          <div className='Loading-animation-container'>
+            <div className='Half-circle-large'></div><div className='Half-circle-small'></div>
+          </div>
+        }
       </div>
     </div>
   )

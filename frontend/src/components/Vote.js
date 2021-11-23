@@ -34,9 +34,14 @@ const Vote = (props) => {
             <h2>Äänestä</h2>
             <div className='Topic-list'>
                 <h3>Aiheet</h3>
-                <div className='Vote-container'>
-                    {topics.length > 0 && topics.map(topic => <div key={topic.name} className={classNames({'Topic-vote': !topic.votes.includes(props.user)}, {'Topic-vote Voted': topic.votes.includes(props.user)})} onClick={() => vote(topic.id)}><span>{topic.name}</span><span>{topic.votes.length}/6</span></div>)}
-                </div>
+                {topics.length && <div className='Vote-container'>
+                    {topics.length > 0 && topics.map(topic => <div key={topic.name} className={classNames({ 'Topic-vote': !topic.votes.includes(props.user) }, { 'Topic-vote Voted': topic.votes.includes(props.user) })} onClick={() => vote(topic.id)}><span>{topic.name}</span><span>{topic.votes.length}/{props.memberCount}</span></div>)}
+                </div>}
+                {!topics.length &&
+                    <div className='Loading-animation-container'>
+                        <div className='Half-circle-large'></div><div className='Half-circle-small'></div>
+                    </div>
+                }
             </div>
         </div>
     )

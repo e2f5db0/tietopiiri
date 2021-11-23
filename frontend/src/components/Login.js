@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Login = (props) => {
 
-  const members = ['Alisa', 'Eemeli', 'Oona', 'Sami', 'Sebu', 'Suski',]
+  const members = ['Alisa', 'Eemeli', 'Oona', 'Sami', 'Sebu', 'Silva', 'Suski',]
+
+  useEffect(() => {
+    props.setMemberCount(members.length)
+  }, [])
 
   return (
     <div className='Container'>

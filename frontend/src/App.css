@@ -335,6 +335,55 @@ h3 {
   animation: bounce 5.5s ease-in-out;
 }
 
+.Half-circle-large {
+  width: 4em;
+  height: 2em; /* as the half of the width */
+  border-top-left-radius: 110px;  /* 100px of height + 10px of border */
+  border-top-right-radius: 110px; /* 100px of height + 10px of border */
+  border: 10px solid #301B3F;
+  border-bottom: 0;
+  animation: spin .5s infinite linear;
+  transform-origin: 50% 100%;
+}
+
+.Half-circle-small {
+  width: 4em;
+  height: 2em; /* as the half of the width */
+  border-top-left-radius: 110px;  /* 100px of height + 10px of border */
+  border-top-right-radius: 110px; /* 100px of height + 10px of border */
+  border: 10px solid #301B3F;
+  border-bottom: 0;
+  animation: spin-cc .5s infinite linear;
+  transform-origin: 50% 100%;
+}
+
+.Loading-animation-container {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 6em;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-cc {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
 @keyframes bounce {
   0% {
     transform: scale(1);

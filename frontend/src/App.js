@@ -11,6 +11,7 @@ import background from './resources/background.mp3'
 
 const App = () => {
 
+    const [memberCount, setMemberCount] = useState(0)
     const [user, setUser] = useState(undefined)
 
     const history = useHistory()
@@ -18,7 +19,6 @@ const App = () => {
     const setView = (view) => {
         history.push(`/${view}`)
     }
-
 
     const [play, setPlay] = useState(false)
     const [volume, setVolume] = useState(1)
@@ -32,13 +32,13 @@ const App = () => {
 
     const views = {}
 
-    views['login'] = <Login setPlay={setPlay} setUser={setUser} />
+    views['login'] = <Login setPlay={setPlay} setMemberCount={setMemberCount} setUser={setUser} />
 
     views['main'] = <Main user={user} setView={setView} />
 
     views['addTopics'] = <AddTopics user={user} setView={setView} />
 
-    views['vote'] = <Vote user={user} setView={setView} />
+    views['vote'] = <Vote user={user} setView={setView} memberCount={memberCount} />
 
     views['topicSelection'] = <TopicSelection user={user} setView={setView} pauseBackgroundMusic={pauseBackgroundMusic} />
 
