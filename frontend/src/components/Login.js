@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 const Login = (props) => {
 
-  const members = ['Alisa', 'Eemeli', 'Oona', 'Sami', 'Sebu', 'Silva', 'Suski',]
+  const members = ['Alisa', 'Eemeli', 'Maija', 'Oona', 'Sami', 'Sebu', 'Silva', 'Suski',]
 
   useEffect(() => {
     props.setMemberCount(members.length)
